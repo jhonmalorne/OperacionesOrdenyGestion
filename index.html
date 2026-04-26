@@ -1,584 +1,1303 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Caprichos de Mary · Postres & Dulces</title>
-  <!-- fuentes amigables y con carácter dulce -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Quicksand', sans-serif;
-    }
-
-    body {
-      background-color: #fff9f5;  /* fondo crema muy suave */
-      color: #4a3b2f;
-      line-height: 1.5;
-    }
-
-    /* paleta de colores: rosas empolvados, caramelo, chocolate */
-    :root {
-      --primary: #d9b8a6;       /* caramelo suave */
-      --primary-dark: #b48c7a;  /* caramelo medio */
-      --accent: #f3d4c0;         /* rosadito cremoso */
-      --soft-pink: #fce9e1;
-      --chocolate: #6f4e3a;
-      --chocolate-light: #9b7b64;
-      --whatsapp: #25D366;
-      --white: #ffffff;
-      --shadow: 0 10px 25px -5px rgba(0,0,0,0.08), 0 8px 10px -6px rgba(0,0,0,0.02);
-    }
-
-    /* contenedor general */
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 1.5rem 1.8rem;
-    }
-
-    /* header principal */
-    .header {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      background: var(--white);
-      padding: 0.8rem 2rem;
-      border-radius: 60px 60px 30px 30px;
-      box-shadow: var(--shadow);
-      margin-bottom: 2rem;
-      border: 1px solid rgba(217, 184, 166, 0.3);
-    }
-
-    .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .logo-area img {
-      width: 70px;
-      height: auto;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--primary);
-      background: white;
-    }
-
-    .logo-area h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      color: var(--chocolate);
-      text-shadow: 2px 2px 0 var(--accent);
-    }
-    .logo-area h1 span {
-      font-weight: 400;
-      font-size: 1.1rem;
-      color: var(--chocolate-light);
-      display: block;
-      line-height: 1.2;
-    }
-
-    .whatsapp-contact {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      background: #eafaf1;
-      padding: 0.5rem 1.3rem;
-      border-radius: 50px;
-      transition: all 0.2s;
-      border: 1px solid var(--whatsapp);
-    }
-    .whatsapp-contact:hover {
-      background: #d5f0e0;
-      transform: scale(1.02);
-    }
-    .whatsapp-contact img {
-      width: 38px;
-      height: 38px;
-    }
-    .whatsapp-contact a {
-      text-decoration: none;
-      color: #1f6b4a;
-      font-weight: 600;
-      font-size: 1.3rem;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-
-    /* sección de bienvenida y servicio */
-    .hero {
-      background: linear-gradient(145deg, var(--soft-pink), #ffe8dd);
-      border-radius: 2.5rem;
-      padding: 2.5rem 2rem;
-      margin-bottom: 3rem;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      border: 2px dashed var(--primary);
-      box-shadow: inset 0 2px 8px rgba(255,255,255,0.8), var(--shadow);
-    }
-
-    .hero-text h2 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: var(--chocolate);
-    }
-    .hero-text h2 i {
-      font-style: normal;
-      background: var(--primary);
-      padding: 0.2rem 1rem;
-      border-radius: 40px;
-      font-size: 1.6rem;
-      color: white;
-      display: inline-block;
-      margin-top: 0.5rem;
-    }
-    .hero-details {
-      display: flex;
-      gap: 2.5rem;
-      flex-wrap: wrap;
-      margin-top: 1rem;
-    }
-    .service-badge {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      background: white;
-      padding: 0.6rem 1.8rem;
-      border-radius: 40px;
-      box-shadow: 0 4px 10px rgba(111, 78, 58, 0.1);
-      font-weight: 600;
-    }
-    .service-badge img {
-      width: 32px;
-      height: 32px;
-      border-radius: 6px;
-    }
-
-    .hero-ventas {
-      background: var(--chocolate);
-      color: white;
-      padding: 0.8rem 2rem;
-      border-radius: 60px;
-      font-size: 1.3rem;
-      font-weight: 600;
-    }
-    .hero-ventas span {
-      background: #f9c39b;
-      color: #4a2e1e;
-      padding: 0.2rem 1rem;
-      border-radius: 30px;
-      margin-left: 0.8rem;
-    }
-
-    /* sección productos */
-    .section-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--chocolate);
-      margin-bottom: 2rem;
-      border-left: 12px solid var(--primary);
-      padding-left: 1.5rem;
-    }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem 1.5rem;
-      margin-bottom: 3.5rem;
-    }
-
-    .product-card {
-      background: var(--white);
-      border-radius: 2rem 2rem 2rem 2rem;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: transform 0.25s ease, box-shadow 0.3s;
-      border: 1px solid #f3ddd2;
-      display: flex;
-      flex-direction: column;
-    }
-    .product-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 25px 30px -10px rgba(111, 78, 58, 0.2);
-    }
-
-    .product-img {
-      width: 100%;
-      height: 190px;
-      object-fit: cover;
-      background: #f7ede7;
-      border-bottom: 3px solid var(--primary);
-    }
-
-    .product-info {
-      padding: 1.5rem 1.2rem 1.5rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .product-name {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--chocolate);
-      margin-bottom: 0.3rem;
-    }
-    .product-desc {
-      font-size: 1rem;
-      color: #5f4d3e;
-      background: #fff1e9;
-      padding: 0.4rem 0.9rem;
-      border-radius: 30px;
-      display: inline-block;
-      margin: 0.6rem 0 1rem;
-      font-weight: 500;
-    }
-    .product-price {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--primary-dark);
-      margin: 0.3rem 0 1.2rem;
-      line-height: 1;
-    }
-    .product-price small {
-      font-size: 1rem;
-      font-weight: 500;
-      color: #a08472;
-    }
-
-    .btn-wsp-order {
-      background: var(--whatsapp);
-      border: none;
-      border-radius: 40px;
-      padding: 0.8rem 1rem;
-      color: white;
-      font-weight: 700;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.1s;
-      border: 1px solid #1da85c;
-      margin-top: auto;
-      text-decoration: none;
-      line-height: 1;
-    }
-    .btn-wsp-order img {
-      width: 24px;
-      height: 24px;
-      filter: brightness(0) invert(1);
-    }
-    .btn-wsp-order:hover {
-      background: #1da85c;
-      transform: scale(1.02);
-    }
-
-    /* sección de pago, marketing y localidad */
-    .info-panel {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      background: var(--white);
-      border-radius: 3rem;
-      padding: 2.5rem 2rem;
-      margin: 3rem 0;
-      box-shadow: var(--shadow);
-      border: 2px solid #f0d9ce;
-      align-items: center;
-      justify-content: space-around;
-    }
-
-    .info-block {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      min-width: 160px;
-    }
-    .info-block img {
-      width: 70px;
-      height: 70px;
-      object-fit: contain;
-      margin-bottom: 0.8rem;
-      border-radius: 20px;
-      background: #faf0ea;
-      padding: 8px;
-    }
-    .info-block p {
-      font-weight: 600;
-      color: var(--chocolate);
-      font-size: 1.1rem;
-    }
-    .info-block small {
-      color: #876b58;
-      font-size: 0.9rem;
-    }
-    .marketing-credit {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      background: #efe2da;
-      padding: 0.7rem 2rem;
-      border-radius: 60px;
-    }
-    .marketing-credit img {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    /* footer */
-    .footer {
-      background: var(--chocolate);
-      color: #fbe9dd;
-      border-radius: 3rem 3rem 1.5rem 1.5rem;
-      padding: 2rem 2rem 1rem;
-      margin-top: 3rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .footer .copy {
-      font-weight: 500;
-      opacity: 0.9;
-    }
-    .footer a {
-      color: #ffd7bf;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    /* responsive */
-    @media (max-width: 600px) {
-      .header {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-      }
-      .logo-area h1 {
-        font-size: 1.7rem;
-      }
-      .hero-text h2 {
-        font-size: 2rem;
-      }
-      .hero-ventas {
-        font-size: 1rem;
-      }
-      .product-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-    @media (max-width: 420px) {
-      .product-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0"/>
+<title>Orden y Gestión · Los Guayos · Carabobo</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+:root{
+  --bg:#07080d;
+  --bg2:#0d1019;
+  --bg3:#131724;
+  --card:#161c2d;
+  --card2:#1c2438;
+  --border:rgba(255,200,0,0.15);
+  --border2:rgba(255,255,255,0.06);
+  --gold:#ffc800;
+  --gold2:#ffe066;
+  --red:#cc2200;
+  --red2:#ff3a1a;
+  --blue:#003087;
+  --blue2:#1a4fff;
+  --green:#00c853;
+  --green2:#69f0ae;
+  --cyan:#00d4ff;
+  --text:#eef2ff;
+  --text2:#94a3c4;
+  --text3:#5a6a8a;
+  --shadow:0 8px 40px rgba(0,0,0,0.6);
+  --glow:0 0 30px rgba(255,200,0,0.15);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
+::-webkit-scrollbar{width:5px;} ::-webkit-scrollbar-track{background:var(--bg2);} ::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;}
+ 
+/* ── LOGIN ── */
+#login-screen{
+  position:fixed;inset:0;z-index:9999;
+  background:linear-gradient(160deg,#050709 0%,#0a0c14 40%,#07050a 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:24px;
+}
+#login-screen::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%,rgba(255,200,0,0.07) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 40% at 0% 100%,rgba(204,34,0,0.06) 0%,transparent 50%),
+    radial-gradient(ellipse 40% 40% at 100% 50%,rgba(0,48,135,0.06) 0%,transparent 50%);
+}
+#login-screen::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='29' y='0' width='2' height='60' fill='rgba(255,200,0,0.02)'/%3E%3Crect x='0' y='29' width='60' height='2' fill='rgba(255,200,0,0.02)'/%3E%3C/svg%3E");
+}
+.login-logo-wrap{text-align:center;margin-bottom:32px;position:relative;}
+.login-logo{width:120px;height:120px;border-radius:50%;object-fit:cover;
+  border:3px solid var(--gold);box-shadow:0 0 40px rgba(255,200,0,0.3),0 0 80px rgba(255,200,0,0.1);
+  animation:logoPulse 3s ease-in-out infinite;}
+@keyframes logoPulse{0%,100%{box-shadow:0 0 40px rgba(255,200,0,0.3),0 0 80px rgba(255,200,0,0.1);}50%{box-shadow:0 0 60px rgba(255,200,0,0.5),0 0 100px rgba(255,200,0,0.2);}}
+.login-brand{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2rem,6vw,3.5rem);
+  letter-spacing:4px;
+  background:linear-gradient(135deg,var(--gold) 0%,var(--gold2) 50%,var(--gold) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-top:16px;line-height:1;
+}
+.login-sub{font-size:0.78rem;color:var(--text3);letter-spacing:3px;text-transform:uppercase;margin-top:6px;}
+.login-box{
+  position:relative;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:36px 32px;
+  width:100%;max-width:400px;
+  box-shadow:var(--shadow),var(--glow);
+}
+.login-box h2{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:3px;color:var(--gold);text-align:center;margin-bottom:6px;}
+.login-box p{font-size:0.78rem;color:var(--text3);text-align:center;margin-bottom:28px;letter-spacing:1px;}
+.login-inp-wrap{position:relative;margin-bottom:14px;}
+.login-inp{
+  width:100%;padding:14px 48px 14px 16px;
+  background:var(--bg2);border:1px solid var(--border);border-radius:12px;
+  color:var(--text);font-family:'JetBrains Mono',monospace;font-size:1rem;
+  letter-spacing:3px;outline:none;transition:border 0.2s,box-shadow 0.2s;
+}
+.login-inp:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(255,200,0,0.1);}
+.login-inp::placeholder{letter-spacing:1px;font-size:0.85rem;font-family:'DM Sans',sans-serif;color:var(--text3);}
+.inp-eye{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--text3);cursor:pointer;font-size:1rem;transition:color 0.2s;}
+.inp-eye:hover{color:var(--gold);}
+.login-btn{
+  width:100%;padding:14px;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  border:none;border-radius:12px;
+  font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:3px;
+  color:var(--bg);cursor:pointer;
+  box-shadow:0 4px 20px rgba(255,200,0,0.3);
+  transition:all 0.2s;
+}
+.login-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,200,0,0.4);}
+.login-err{color:var(--red2);font-size:0.78rem;text-align:center;margin-top:8px;display:none;}
+.login-flags{display:flex;justify-content:center;gap:8px;margin-top:24px;}
+.flag-item{display:flex;align-items:center;gap:5px;font-size:0.68rem;color:var(--text3);letter-spacing:1px;}
+.flag-dot{width:8px;height:8px;border-radius:50%;}
+ 
+/* ── APP ── */
+#app{display:none;min-height:100vh;}
+ 
+/* SIDEBAR */
+#sidebar{
+  position:fixed;top:0;left:0;bottom:0;width:240px;z-index:100;
+  background:var(--bg2);border-right:1px solid var(--border2);
+  display:flex;flex-direction:column;
+  transform:translateX(0);transition:transform 0.3s;
+}
+#sidebar.closed{transform:translateX(-240px);}
+.sb-logo{padding:22px 20px;border-bottom:1px solid var(--border2);}
+.sb-logo-img{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);}
+.sb-logo-name{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:2px;color:var(--gold);margin-top:10px;line-height:1;}
+.sb-logo-sub{font-size:0.62rem;color:var(--text3);letter-spacing:2px;text-transform:uppercase;margin-top:3px;}
+.sb-nav{flex:1;overflow-y:auto;padding:12px 0;}
+.sb-section{padding:8px 16px 4px;font-size:0.58rem;color:var(--text3);letter-spacing:3px;text-transform:uppercase;}
+.sb-item{
+  display:flex;align-items:center;gap:12px;
+  padding:10px 20px;cursor:pointer;
+  font-size:0.83rem;color:var(--text2);
+  border-left:3px solid transparent;
+  transition:all 0.2s;
+}
+.sb-item:hover{color:var(--text);background:rgba(255,200,0,0.04);}
+.sb-item.active{color:var(--gold);border-left-color:var(--gold);background:rgba(255,200,0,0.06);}
+.sb-item i{width:18px;text-align:center;font-size:0.9rem;}
+.sb-bottom{padding:16px;border-top:1px solid var(--border2);}
+.sb-user{display:flex;align-items:center;gap:10px;}
+.sb-avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--red));display:flex;align-items:center;justify-content:center;font-size:0.9rem;font-weight:700;color:#fff;flex-shrink:0;}
+.sb-uname{font-size:0.78rem;font-weight:600;color:var(--text);}
+.sb-urole{font-size:0.65rem;color:var(--text3);}
+.sb-logout{margin-left:auto;background:none;border:none;color:var(--text3);cursor:pointer;font-size:0.85rem;transition:color 0.2s;}
+.sb-logout:hover{color:var(--red2);}
+ 
+/* TOPBAR */
+#topbar{
+  position:fixed;top:0;left:240px;right:0;height:58px;z-index:90;
+  background:rgba(13,16,25,0.95);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border2);
+  display:flex;align-items:center;padding:0 24px;gap:16px;
+  transition:left 0.3s;
+}
+#topbar.full{left:0;}
+.tb-toggle{background:none;border:none;color:var(--text2);cursor:pointer;font-size:1.1rem;padding:4px;transition:color 0.2s;}
+.tb-toggle:hover{color:var(--gold);}
+.tb-title{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:2px;color:var(--text);}
+.tb-right{margin-left:auto;display:flex;align-items:center;gap:10px;}
+.tb-badge{
+  background:rgba(255,200,0,0.12);border:1px solid rgba(255,200,0,0.25);
+  border-radius:20px;padding:4px 12px;
+  font-size:0.68rem;color:var(--gold);letter-spacing:1px;
+  display:flex;align-items:center;gap:5px;
+}
+.live-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:blink 1.2s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.2;}}
+ 
+/* MAIN */
+#main{margin-left:240px;padding-top:58px;min-height:100vh;transition:margin-left 0.3s;}
+#main.full{margin-left:0;}
+.page{display:none;padding:24px;}
+.page.active{display:block;}
+ 
+/* SECTION HEADER */
+.sec-head{margin-bottom:24px;}
+.sec-head-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:6px;}
+.sec-label{font-size:0.62rem;color:var(--gold);letter-spacing:3px;text-transform:uppercase;display:flex;align-items:center;gap:8px;}
+.sec-label::before{content:'';width:20px;height:2px;background:var(--gold);}
+.sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.5rem,3vw,2.2rem);letter-spacing:2px;color:var(--text);}
+.sec-desc{font-size:0.82rem;color:var(--text3);margin-top:4px;}
+ 
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--border2);border-radius:14px;padding:20px;}
+.card-gold{border-color:rgba(255,200,0,0.25);}
+ 
+/* GRID */
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+@media(max-width:1100px){.g4{grid-template-columns:repeat(2,1fr);}.g3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:768px){
+  #sidebar{transform:translateX(-240px);}
+  #sidebar.mobile-open{transform:translateX(0);}
+  #topbar{left:0;} #main{margin-left:0;}
+  .g2,.g3,.g4{grid-template-columns:1fr;}
+}
+@media(max-width:480px){.page{padding:14px;}}
+ 
+/* STAT CARD */
+.stat-card{background:var(--card);border:1px solid var(--border2);border-radius:14px;padding:20px;position:relative;overflow:hidden;}
+.stat-card::before{content:'';position:absolute;top:-20px;right:-20px;width:80px;height:80px;border-radius:50%;opacity:0.06;}
+.stat-card.gold::before{background:var(--gold);}
+.stat-card.red::before{background:var(--red2);}
+.stat-card.green::before{background:var(--green);}
+.stat-card.cyan::before{background:var(--cyan);}
+.stat-icon{font-size:1.4rem;margin-bottom:12px;}
+.stat-val{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:1px;line-height:1;}
+.stat-gold .stat-val{color:var(--gold);}
+.stat-red .stat-val,.stat-card.red .stat-val{color:var(--red2);}
+.stat-card.green .stat-val{color:var(--green);}
+.stat-card.cyan .stat-val{color:var(--cyan);}
+.stat-label{font-size:0.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-top:4px;}
+.stat-trend{font-size:0.7rem;margin-top:6px;}
+ 
+/* SEMAFORO */
+.semaforo{display:flex;gap:6px;align-items:center;}
+.sema-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0;}
+.sema-verde{background:#00c853;box-shadow:0 0 8px rgba(0,200,83,0.5);}
+.sema-amarillo{background:#ffd600;box-shadow:0 0 8px rgba(255,214,0,0.5);}
+.sema-rojo{background:#ff1744;box-shadow:0 0 8px rgba(255,23,68,0.5);animation:semaBlink 1s infinite;}
+@keyframes semaBlink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+ 
+/* ALERTS */
+.alert-item{
+  display:flex;align-items:center;gap:12px;
+  padding:12px 16px;border-radius:10px;
+  border:1px solid var(--border2);margin-bottom:8px;
+  background:var(--card2);font-size:0.82rem;
+}
+.alert-item.critical{border-left:3px solid var(--red2);}
+.alert-item.warning{border-left:3px solid var(--gold);}
+.alert-item.ok{border-left:3px solid var(--green);}
+.alert-time{font-size:0.68rem;color:var(--text3);margin-left:auto;white-space:nowrap;}
+ 
+/* BUTTONS */
+.btn{padding:8px 18px;border:none;border-radius:9px;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;font-size:0.8rem;transition:all 0.2s;display:inline-flex;align-items:center;gap:7px;}
+.btn-gold{background:var(--gold);color:var(--bg);}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-1px);box-shadow:0 4px 16px rgba(255,200,0,0.3);}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--text2);}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+.btn-green{background:var(--green);color:#000;}
+.btn-green:hover{background:var(--green2);}
+.btn-red{background:var(--red);color:#fff;}
+.btn-red:hover{background:var(--red2);}
+.btn-sm{padding:5px 12px;font-size:0.72rem;}
+.btn-wa{background:#25D366;color:#fff;}
+.btn-wa:hover{background:#20ba5a;}
+ 
+/* BADGE */
+.badge{padding:2px 9px;border-radius:20px;font-size:0.65rem;font-weight:700;letter-spacing:0.5px;display:inline-block;}
+.badge-gold{background:rgba(255,200,0,0.15);color:var(--gold);border:1px solid rgba(255,200,0,0.3);}
+.badge-green{background:rgba(0,200,83,0.15);color:#00c853;border:1px solid rgba(0,200,83,0.3);}
+.badge-red{background:rgba(255,55,26,0.15);color:var(--red2);border:1px solid rgba(255,55,26,0.3);}
+.badge-blue{background:rgba(26,79,255,0.15);color:#4d79ff;border:1px solid rgba(26,79,255,0.3);}
+.badge-gray{background:rgba(255,255,255,0.06);color:var(--text3);border:1px solid var(--border2);}
+ 
+/* TABS */
+.tabs{display:flex;gap:4px;background:var(--bg2);border-radius:10px;padding:4px;margin-bottom:20px;flex-wrap:wrap;}
+.tab{padding:7px 16px;border-radius:7px;cursor:pointer;font-size:0.8rem;color:var(--text2);transition:all 0.2s;border:none;background:none;font-family:'DM Sans',sans-serif;}
+.tab.active{background:var(--gold);color:var(--bg);font-weight:700;}
+.tab-content{display:none;}
+.tab-content.active{display:block;}
+ 
+/* SECTOR CARDS */
+.sector-item{
+  background:var(--card2);border:1px solid var(--border2);border-radius:12px;
+  padding:14px 16px;margin-bottom:8px;cursor:pointer;transition:all 0.2s;
+}
+.sector-item:hover{border-color:rgba(255,200,0,0.3);background:var(--card);}
+.sector-item.has-leader{border-left:3px solid var(--green);}
+.sector-item.no-leader{border-left:3px solid var(--text3);}
+.sector-header{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;}
+.sector-name{font-weight:600;font-size:0.88rem;color:var(--text);}
+.leader-row{display:flex;align-items:center;gap:8px;margin-top:8px;flex-wrap:wrap;}
+.leader-info{font-size:0.78rem;color:var(--text2);}
+.leader-name{font-weight:600;color:var(--text);}
+ 
+/* CUADRANTE BADGE */
+.cuad-badge{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;padding:3px 10px;border-radius:20px;font-size:0.65rem;font-weight:700;letter-spacing:1px;}
+ 
+/* PROGRESS */
+.progress-wrap{background:var(--bg2);border-radius:20px;height:8px;overflow:hidden;margin-top:8px;}
+.progress-bar{height:100%;border-radius:20px;background:linear-gradient(90deg,var(--gold),var(--gold2));transition:width 1s;}
+ 
+/* TABLE */
+.tbl-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--border2);}
+.tbl{width:100%;border-collapse:collapse;font-size:0.82rem;}
+.tbl th{background:var(--bg2);color:var(--gold);padding:11px 14px;text-align:left;font-size:0.68rem;text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid var(--border2);white-space:nowrap;}
+.tbl td{padding:10px 14px;border-bottom:1px solid var(--border2);color:var(--text2);}
+.tbl tr:last-child td{border-bottom:none;}
+.tbl tr:hover td{background:rgba(255,200,0,0.03);}
+ 
+/* INPUT */
+.inp{width:100%;padding:10px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:9px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:0.85rem;outline:none;transition:border 0.2s;}
+.inp:focus{border-color:var(--gold);}
+.inp::placeholder{color:var(--text3);}
+label.lbl{font-size:0.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:5px;}
+ 
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(6px);}
+.modal-overlay.hidden{display:none;}
+.modal{background:var(--bg2);border:1px solid var(--border);border-radius:18px;max-width:560px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.7);}
+.modal-head{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid var(--border2);position:sticky;top:0;background:var(--bg2);z-index:1;}
+.modal-head h3{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:2px;color:var(--gold);}
+.modal-close{background:none;border:none;color:var(--text3);cursor:pointer;font-size:1.1rem;transition:color 0.2s;}
+.modal-close:hover{color:var(--red2);}
+.modal-body{padding:22px;}
+ 
+/* TOAST */
+#toast{position:fixed;bottom:24px;right:24px;z-index:5000;display:flex;flex-direction:column;gap:8px;}
+.toast-item{background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:12px 18px;font-size:0.82rem;box-shadow:var(--shadow);animation:toastIn 0.3s ease;max-width:280px;}
+.toast-item.success{border-left:3px solid var(--green);color:#69f0ae;}
+.toast-item.error{border-left:3px solid var(--red2);color:#ff7961;}
+.toast-item.info{border-left:3px solid var(--cyan);color:var(--cyan);}
+@keyframes toastIn{from{transform:translateX(110%);opacity:0;}to{transform:translateX(0);opacity:1;}}
+ 
+/* MAP PLACEHOLDER */
+.map-placeholder{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;padding:40px;text-align:center;color:var(--text3);}
+ 
+/* DOWNLOAD CARD */
+.dl-card{background:var(--card2);border:1px solid var(--border2);border-radius:12px;padding:16px 18px;display:flex;align-items:center;gap:14px;margin-bottom:10px;transition:all 0.2s;}
+.dl-card:hover{border-color:rgba(255,200,0,0.3);}
+.dl-icon{font-size:1.5rem;flex-shrink:0;}
+.dl-info{flex:1;}
+.dl-name{font-weight:600;font-size:0.88rem;color:var(--text);margin-bottom:3px;}
+.dl-desc{font-size:0.72rem;color:var(--text3);}
+ 
+/* FOOTER */
+.page-footer{padding:32px 24px;text-align:center;border-top:1px solid var(--border2);margin-top:32px;}
+.page-footer p{font-size:0.72rem;color:var(--text3);letter-spacing:1px;}
+.page-footer b{color:var(--gold);}
+ 
+/* TICKER */
+#ticker-bar{
+  background:linear-gradient(135deg,rgba(0,48,135,0.9),rgba(204,34,0,0.9));
+  border-top:2px solid var(--gold);
+  padding:6px 24px;display:flex;align-items:center;gap:14px;
+  font-size:0.73rem;overflow:hidden;
+}
+.ticker-label{color:var(--gold);font-family:'Bebas Neue',sans-serif;letter-spacing:2px;white-space:nowrap;display:flex;align-items:center;gap:6px;}
+#ticker-text{flex:1;overflow:hidden;white-space:nowrap;animation:tickerScroll 25s linear infinite;color:rgba(255,255,255,0.85);}
+@keyframes tickerScroll{0%{transform:translateX(100%);}100%{transform:translateX(-100%);}}
+ 
+/* MCM BANNER */
+.mcm-banner{
+  background:linear-gradient(135deg,#001a4d,#0a0a0f,#8b0000);
+  border:1px solid rgba(255,200,0,0.3);
+  border-radius:14px;padding:20px 24px;
+  display:flex;align-items:center;gap:16px;
+  margin-bottom:20px;
+}
+.mcm-flag{font-size:2rem;}
+.mcm-text h3{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:2px;color:var(--gold);}
+.mcm-text p{font-size:0.78rem;color:rgba(255,255,255,0.6);margin-top:3px;}
+ 
+/* SEARCH */
+.search-box{position:relative;}
+.search-box i{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:0.85rem;}
+.search-box .inp{padding-left:36px;}
+</style>
 </head>
 <body>
-  <div class="container">
-    <!-- HEADER con logo, nombre y whatsapp -->
-    <header class="header">
-      <div class="logo-area">
-        <img src="logomary.png" alt="Logo Caprichos de Mary" onerror="this.src='https://via.placeholder.com/70?text=Mary'">
-        <h1>Caprichos de Mary <span>postres & dulces artesanales</span></h1>
+ 
+<!-- ═══════════════ LOGIN ═══════════════ -->
+<div id="login-screen">
+  <div class="login-logo-wrap">
+    <img class="login-logo" src="https://github.com/jhonmalorne/OperacionesOrdenyGestion/blob/main/Orden%20y%20gestion%20logo.jpg?raw=true" alt="Logo" onerror="this.style.display='none'"/>
+    <div class="login-brand">Orden y Gestión</div>
+    <div class="login-sub">Red Ciudadana · Los Guayos · Carabobo</div>
+  </div>
+  <div class="login-box">
+    <h2>&#128274; Acceso Restringido</h2>
+    <p>Plataforma de uso exclusivo para líderes de la red ciudadana</p>
+    <div class="login-inp-wrap">
+      <input class="login-inp" type="password" id="pass-inp" placeholder="Contraseña de acceso" onkeydown="if(event.key==='Enter')doLogin()"/>
+      <button class="inp-eye" onclick="togglePass()"><i class="fas fa-eye" id="eye-icon"></i></button>
+    </div>
+    <div class="login-err" id="login-err"><i class="fas fa-exclamation-triangle"></i> Contraseña incorrecta</div>
+    <button class="login-btn" onclick="doLogin()">&#9889; INGRESAR AL SISTEMA</button>
+    <div class="login-flags">
+      <div class="flag-item"><div class="flag-dot" style="background:#cf0000"></div>VENEZUELA</div>
+      <div class="flag-item"><div class="flag-dot" style="background:#ffd700"></div>CARABOBO</div>
+      <div class="flag-item"><div class="flag-dot" style="background:#0051a8"></div>LOS GUAYOS</div>
+    </div>
+  </div>
+</div>
+ 
+<!-- ═══════════════ APP ═══════════════ -->
+<div id="app">
+ 
+<!-- SIDEBAR -->
+<aside id="sidebar">
+  <div class="sb-logo">
+    <img class="sb-logo-img" src="https://github.com/jhonmalorne/OperacionesOrdenyGestion/blob/main/Orden%20y%20gestion%20logo.jpg?raw=true" alt="Logo" onerror="this.style.display='none'"/>
+    <div class="sb-logo-name">Orden y Gestión</div>
+    <div class="sb-logo-sub">Los Guayos · Carabobo</div>
+  </div>
+  <nav class="sb-nav">
+    <div class="sb-section">Principal</div>
+    <div class="sb-item active" onclick="goPage('war-room')"><i class="fas fa-satellite-dish"></i> War Room</div>
+    <div class="sb-item" onclick="goPage('red-liderazgo')"><i class="fas fa-sitemap"></i> Red de Liderazgo</div>
+    <div class="sb-section">Electoral</div>
+    <div class="sb-item" onclick="goPage('inteligencia')"><i class="fas fa-chart-bar"></i> Inteligencia Electoral</div>
+    <div class="sb-item" onclick="goPage('centros')"><i class="fas fa-school"></i> Centros de Votación</div>
+    <div class="sb-section">Comunidad</div>
+    <div class="sb-item" onclick="goPage('accion-social')"><i class="fas fa-hands-helping"></i> Acción Social</div>
+    <div class="sb-item" onclick="goPage('repositorio')"><i class="fas fa-folder-open"></i> Repositorio</div>
+    <div class="sb-section">Información</div>
+    <div class="sb-item" onclick="goPage('directorio')"><i class="fas fa-address-book"></i> Directorio Líder</div>
+  </nav>
+  <div class="sb-bottom">
+    <div class="sb-user">
+      <div class="sb-avatar">OG</div>
+      <div><div class="sb-uname">Líder Focal</div><div class="sb-urole">Red Ciudadana</div></div>
+      <button class="sb-logout" onclick="doLogout()" title="Cerrar sesión"><i class="fas fa-sign-out-alt"></i></button>
+    </div>
+  </div>
+</aside>
+ 
+<!-- TOPBAR -->
+<div id="topbar">
+  <button class="tb-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+  <span class="tb-title" id="tb-title">WAR ROOM · MONITOR SITUACIONAL</span>
+  <div class="tb-right">
+    <div class="tb-badge"><div class="live-dot"></div>EN VIVO</div>
+    <div class="tb-badge" style="color:var(--text2);background:transparent;border-color:var(--border2)"><i class="fas fa-clock"></i><span id="clock"></span></div>
+  </div>
+</div>
+ 
+<!-- MAIN -->
+<div id="main">
+ 
+  <!-- ═══ WAR ROOM ═══ -->
+  <div id="page-war-room" class="page active" style="padding-top:32px;">
+    <div class="mcm-banner">
+      <div class="mcm-flag">🇻🇪</div>
+      <div class="mcm-text">
+        <h3>&#9889; ESTAMOS CON MARÍA CORINA MACHADO</h3>
+        <p>Red Ciudadana Orden y Gestión · Municipio Los Guayos · Recuperando Venezuela desde las bases</p>
       </div>
-      <div class="whatsapp-contact">
-        <img src="logowhatsapp.png" alt="WhatsApp" onerror="this.src='https://via.placeholder.com/38?text=WA'">
-        <a href="https://wa.me/584244109526?text=¡Hola%20Mary!%20Quiero%20consultar%20por%20tus%20dulces%20🍰" target="_blank">
-          0424-4109526
-        </a>
+      <img src="https://github.com/jhonmalorne/OperacionesOrdenyGestion/blob/main/mapadevenezuela.png?raw=true" style="height:48px;opacity:0.7" onerror="this.style.display='none'" alt="Venezuela"/>
+    </div>
+ 
+    <div class="sec-head">
+      <div class="sec-label">Monitor Situacional</div>
+      <div class="sec-title">War Room · Los Guayos</div>
+      <div class="sec-desc">Estado actual del municipio en tiempo real. Actualizado por la red de líderes.</div>
+    </div>
+ 
+    <div class="g4" style="margin-bottom:20px">
+      <div class="stat-card gold">
+        <div class="stat-icon" style="color:var(--gold)">&#128100;</div>
+        <div class="stat-val" style="color:var(--gold)">106,124</div>
+        <div class="stat-label">Votantes Inscritos</div>
+        <div class="stat-trend" style="color:var(--green)"><i class="fas fa-circle-check"></i> Padrón verificado</div>
       </div>
-    </header>
-
-    <!-- HERO: servicio, ubicación y mayor/detal -->
-    <section class="hero">
-      <div class="hero-text">
-        <h2>🍬 Endulza tu día <br><i>hecho con amor en Los Guayos</i></h2>
-        <div class="hero-details">
-          <div class="service-badge">
-            <img src="mapadevenezuela.png" alt="mapa Venezuela" onerror="this.src='https://via.placeholder.com/32?text=📍'">
-            <span>Servicio dentro de <strong>Los Guayos</strong></span>
-          </div>
-          <div class="service-badge">
-            <span>📦 Pedidos por encargo</span>
-          </div>
+      <div class="stat-card green">
+        <div class="stat-icon" style="color:var(--green)">&#127970;</div>
+        <div class="stat-val" style="color:var(--green)">43</div>
+        <div class="stat-label">Centros de Votación</div>
+        <div class="stat-trend" style="color:var(--text3)"><i class="fas fa-map-marker-alt"></i> 7 Cuadrantes</div>
+      </div>
+      <div class="stat-card" style="border-color:rgba(0,212,255,0.2)">
+        <div class="stat-icon" style="color:var(--cyan)">&#128203;</div>
+        <div class="stat-val" style="color:var(--cyan)">7</div>
+        <div class="stat-label">Cuadrantes Activos</div>
+        <div class="stat-trend" style="color:var(--gold)"><i class="fas fa-network-wired"></i> Red organizada</div>
+      </div>
+      <div class="stat-card" style="border-color:rgba(204,34,0,0.2)">
+        <div class="stat-icon" style="color:var(--red2)">&#128680;</div>
+        <div class="stat-val" style="color:var(--red2)" id="alertas-count">3</div>
+        <div class="stat-label">Alertas Activas</div>
+        <div class="stat-trend" style="color:var(--text3)">Última: hace 12 min</div>
+      </div>
+    </div>
+ 
+    <div class="g2" style="margin-bottom:20px">
+      <!-- SEMÁFORO -->
+      <div class="card card-gold">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:2px;color:var(--gold)">&#128680; SEMÁFORO DE SERVICIOS</div>
+          <span class="badge badge-gold">TIEMPO REAL</span>
+        </div>
+        <div id="semaforo-list"></div>
+      </div>
+      <!-- ALERTAS -->
+      <div class="card">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:2px;color:var(--text)">&#9888; ALERTAS RECIENTES</div>
+          <button class="btn btn-outline btn-sm" onclick="openReportModal()"><i class="fas fa-plus"></i> Reportar</button>
+        </div>
+        <div id="alertas-list"></div>
+      </div>
+    </div>
+ 
+    <!-- COBERTURA -->
+    <div class="card" style="margin-bottom:20px">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:2px;color:var(--text);margin-bottom:16px">&#128200; COBERTURA DE LIDERAZGO POR CUADRANTE</div>
+      <div id="coverage-bars"></div>
+    </div>
+ 
+    <!-- CONSIGNA -->
+    <div class="card card-gold">
+      <div style="font-size:0.62rem;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:10px"><i class="fas fa-bullhorn"></i> CONSIGNA DEL DÍA</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:2px;color:var(--text);margin-bottom:8px" id="consigna-text">"LA ORGANIZACIÓN ES NUESTRA ARMA. LA VERDAD, NUESTRA BANDERA."</div>
+      <div style="font-size:0.75rem;color:var(--text3)">Sigue la misma línea de comunicación. <b style="color:var(--gold)">María Corina Machado · Venezuela Libre</b></div>
+    </div>
+  </div>
+ 
+  <!-- ═══ RED DE LIDERAZGO ═══ -->
+  <div id="page-red-liderazgo" class="page">
+    <div class="sec-head">
+      <div class="sec-label">Red Ciudadana</div>
+      <div class="sec-title">Red de Liderazgo Sectorial</div>
+      <div class="sec-desc">Estructura orgánica por cuadrantes y sectores del Municipio Los Guayos</div>
+    </div>
+ 
+    <!-- LIDERES SECTORIALES -->
+    <div class="g4" style="margin-bottom:20px">
+      <div class="card card-gold" style="text-align:center">
+        <div style="font-size:1.5rem;margin-bottom:8px">&#127979;</div>
+        <div style="font-weight:700;font-size:0.88rem;color:var(--text);margin-bottom:4px">Representante Educación</div>
+        <div style="font-size:0.82rem;color:var(--text2);margin-bottom:10px">Jhon Álvarez</div>
+        <a href="https://wa.me/584244525765" target="_blank" class="btn btn-wa btn-sm" style="width:100%;justify-content:center"><i class="fab fa-whatsapp"></i> 04244525765</a>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="font-size:1.5rem;margin-bottom:8px">&#9917;</div>
+        <div style="font-weight:700;font-size:0.88rem;color:var(--text);margin-bottom:4px">Representante Deporte</div>
+        <div style="font-size:0.82rem;color:var(--text3);margin-bottom:10px;font-style:italic">Por asignar</div>
+        <span class="badge badge-gray">PENDIENTE</span>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="font-size:1.5rem;margin-bottom:8px">&#127970;</div>
+        <div style="font-weight:700;font-size:0.88rem;color:var(--text);margin-bottom:4px">Representante Gremios</div>
+        <div style="font-size:0.82rem;color:var(--text3);margin-bottom:10px;font-style:italic">Por asignar</div>
+        <span class="badge badge-gray">PENDIENTE</span>
+      </div>
+      <div class="card card-gold" style="text-align:center">
+        <div style="font-size:1.5rem;margin-bottom:8px">&#9877;</div>
+        <div style="font-weight:700;font-size:0.88rem;color:var(--text);margin-bottom:4px">Representante Salud</div>
+        <div style="font-size:0.82rem;color:var(--text2);margin-bottom:10px">Nicoisa</div>
+        <a href="https://wa.me/584244002409" target="_blank" class="btn btn-wa btn-sm" style="width:100%;justify-content:center"><i class="fab fa-whatsapp"></i> 04244002409</a>
+      </div>
+    </div>
+ 
+    <div class="sec-head" style="margin-top:20px">
+      <div class="sec-title" style="font-size:1.4rem">Cuadrantes y Sectores</div>
+    </div>
+ 
+    <div class="tabs" id="cuad-tabs"></div>
+    <div id="cuad-contents"></div>
+ 
+    <!-- INFOGRAFÍA -->
+    <div class="card" style="margin-top:20px;text-align:center">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:2px;color:var(--gold);margin-bottom:14px">&#128247; INFOGRAFÍA DE LA RED</div>
+      <img src="https://github.com/jhonmalorne/OperacionesOrdenyGestion/blob/main/WhatsApp%20Image%202026-04-24%20at%208.06.46%20PM.jpeg?raw=true" style="max-width:100%;border-radius:10px;border:1px solid var(--border)" onerror="this.innerHTML='<p style=color:var(--text3)>Infografía no disponible</p>'" alt="Infografía"/>
+    </div>
+  </div>
+ 
+  <!-- ═══ INTELIGENCIA ELECTORAL ═══ -->
+  <div id="page-inteligencia" class="page">
+    <div class="sec-head">
+      <div class="sec-label">Centro de Inteligencia</div>
+      <div class="sec-title">Padrón Electoral Digital</div>
+      <div class="sec-desc">106,124 votantes inscritos en el Municipio Los Guayos · Datos propios verificados</div>
+    </div>
+ 
+    <div class="g4" style="margin-bottom:20px">
+      <div class="stat-card gold">
+        <div class="stat-icon">&#128100;</div>
+        <div class="stat-val" style="color:var(--gold)">106,124</div>
+        <div class="stat-label">Total Votantes</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-icon">&#127970;</div>
+        <div class="stat-val" style="color:var(--green)">43</div>
+        <div class="stat-label">Centros de Votación</div>
+      </div>
+      <div class="stat-card" style="border-color:rgba(0,212,255,0.2)">
+        <div class="stat-icon">&#128203;</div>
+        <div class="stat-val" style="color:var(--cyan)">162</div>
+        <div class="stat-label">Total de Mesas</div>
+      </div>
+      <div class="stat-card" style="border-color:rgba(204,34,0,0.2)">
+        <div class="stat-icon">&#127981;</div>
+        <div class="stat-val" style="color:var(--red2)">7</div>
+        <div class="stat-label">Cuadrantes</div>
+      </div>
+    </div>
+ 
+    <div class="g2" style="margin-bottom:20px">
+      <div class="card">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:2px;color:var(--gold);margin-bottom:14px">&#128200; DISTRIBUCIÓN POR CUADRANTE</div>
+        <div id="cuad-chart"></div>
+      </div>
+      <div class="card">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:2px;color:var(--text);margin-bottom:14px">&#128204; VOLUNTARIADO Y DEFENSA DEL VOTO</div>
+        <p style="font-size:0.85rem;color:var(--text2);margin-bottom:16px;line-height:1.6">Regístrate como testigo, movilizador o apoyo logístico. Cada voto debe ser defendido con un equipo organizado y comprometido.</p>
+        <a href="https://forms.gle/5rMXgdZ2pbPqRPLM9" target="_blank" class="btn btn-gold" style="width:100%;justify-content:center;margin-bottom:10px"><i class="fas fa-user-plus"></i> REGISTRARSE COMO VOLUNTARIO</a>
+        <a href="https://forms.gle/sVG98B4xLGytU6NCA" target="_blank" class="btn btn-green" style="width:100%;justify-content:center"><i class="fas fa-shield-alt"></i> CARGA ESTATUS DEL EQUIPO DE VOTO</a>
+        <div style="margin-top:14px;padding:12px;background:var(--bg2);border-radius:8px">
+          <div style="font-size:0.7rem;color:var(--text3);margin-bottom:6px;letter-spacing:1px;text-transform:uppercase">Enlace directo de líderes sectoriales</div>
+          <a href="https://losguayosdigital.com/directorios" target="_blank" style="color:var(--gold);font-size:0.82rem;text-decoration:none"><i class="fas fa-external-link-alt"></i> losguayosdigital.com/directorios</a>
+        </div>
+        <img src="https://github.com/jhonmalorne/OperacionesOrdenyGestion/blob/main/logo%20registro.jpg?raw=true" style="width:100%;border-radius:8px;margin-top:12px;max-height:120px;object-fit:cover" onerror="this.style.display='none'" alt="Registro CNE"/>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- ═══ CENTROS DE VOTACIÓN ═══ -->
+  <div id="page-centros" class="page">
+    <div class="sec-head">
+      <div class="sec-label">Padrón Verificado</div>
+      <div class="sec-title">Centros de Votación</div>
+      <div class="sec-desc">43 centros · 162 mesas · 106,124 votantes inscritos en Los Guayos</div>
+    </div>
+    <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+      <div class="search-box" style="flex:1;min-width:200px"><i class="fas fa-search"></i><input class="inp" type="text" id="centros-search" placeholder="Buscar centro..." oninput="filterCentros()"/></div>
+      <select class="inp" id="centros-cuad-filter" style="width:auto" onchange="filterCentros()">
+        <option value="">Todos los cuadrantes</option>
+        <option>Cuadrante 1</option><option>Cuadrante 2</option><option>Cuadrante 3</option>
+        <option>Cuadrante 4</option><option>Cuadrante 5</option><option>Cuadrante 6</option><option>Cuadrante 7</option>
+      </select>
+    </div>
+    <div class="tbl-wrap"><table class="tbl">
+      <thead><tr>
+        <th>Centro de Votación</th><th>Cuadrante</th><th>Mesas</th><th>Votantes</th>
+      </tr></thead>
+      <tbody id="centros-tbody"></tbody>
+    </table></div>
+  </div>
+ 
+  <!-- ═══ ACCIÓN SOCIAL ═══ -->
+  <div id="page-accion-social" class="page">
+    <div class="sec-head">
+      <div class="sec-label">Gestión Directa</div>
+      <div class="sec-title">Módulo de Acción Social</div>
+      <div class="sec-desc">La red resuelve mientras el Estado duerme. Economía circular y casos críticos.</div>
+    </div>
+    <div class="g2">
+      <div class="card card-gold">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:2px;color:var(--gold);margin-bottom:12px"><i class="fas fa-briefcase"></i> BOLSA DE TALENTOS Y SERVICIOS</div>
+        <p style="font-size:0.82rem;color:var(--text2);margin-bottom:14px;line-height:1.6">Catálogo de habilidades y servicios que ofrecen los vecinos del municipio. Fomentamos la economía circular comunitaria.</p>
+        <a href="https://losguayosdigital.com/directorios" target="_blank" class="btn btn-gold" style="width:100%;justify-content:center"><i class="fas fa-external-link-alt"></i> Ver Directorio de Emprendimientos</a>
+      </div>
+      <div class="card">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:2px;color:var(--text);margin-bottom:12px"><i class="fas fa-ticket-alt"></i> GESTIÓN DE CASOS CRÍTICOS</div>
+        <p style="font-size:0.82rem;color:var(--text2);margin-bottom:14px;line-height:1.6">Sistema de tickets para familias en vulnerabilidad extrema. La red de apoyo mutuo se activa de forma organizada y coordinada.</p>
+        <button class="btn btn-outline" style="width:100%;justify-content:center" onclick="openCaseModal()"><i class="fas fa-plus"></i> Registrar Caso Crítico</button>
+      </div>
+    </div>
+    <div class="card" style="margin-top:16px">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:2px;color:var(--text);margin-bottom:14px"><i class="fas fa-clipboard-list"></i> CASOS ACTIVOS</div>
+      <div id="cases-list"></div>
+      <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border2);font-size:0.75rem;color:var(--text3)">
+        <i class="fas fa-info-circle"></i> Los casos se almacenan localmente. Para reportar a la red general usa el grupo de WhatsApp de coordinación.
+      </div>
+    </div>
+  </div>
+ 
+  <!-- ═══ REPOSITORIO ═══ -->
+  <div id="page-repositorio" class="page">
+    <div class="sec-head">
+      <div class="sec-label">Narrativa Estratégica</div>
+      <div class="sec-title">Repositorio Estratégico</div>
+      <div class="sec-desc">Kits de comunicación, mapas y recursos descargables para la red.</div>
+    </div>
+ 
+    <div class="card card-gold" style="margin-bottom:20px">
+      <div style="font-size:0.62rem;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:10px"><i class="fas fa-bullhorn"></i> MENSAJE ESTRATÉGICO</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:2px;color:var(--text);margin-bottom:8px">"EL CAMBIO EMPIEZA EN TU CUADRANTE. ORGANÍZATE, INFORMA Y DEFIENDE TU VOTO."</div>
+      <div style="font-size:0.75rem;color:var(--text3)">Línea de comunicación unificada · Red Ciudadana Orden y Gestión · Los Guayos</div>
+    </div>
+ 
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:2px;color:var(--text);margin-bottom:14px"><i class="fas fa-download"></i> RECURSOS DESCARGABLES</div>
+ 
+    <div class="dl-card">
+      <div class="dl-icon">&#128506;</div>
+      <div class="dl-info"><div class="dl-name">Mapa Estratégico Los Guayos</div><div class="dl-desc">Mapa interactivo de centros de votación y cuadrantes</div></div>
+      <a href="https://jhonmalorne.github.io/mapaestrategicolosguayos/" target="_blank" class="btn btn-gold btn-sm"><i class="fas fa-external-link-alt"></i> Abrir</a>
+    </div>
+    <div class="dl-card">
+      <div class="dl-icon">&#128247;</div>
+      <div class="dl-info"><div class="dl-name">Infografía Red de Liderazgo</div><div class="dl-desc">Estructura visual de la red ciudadana</div></div>
+      <a href="https://github.com/jhonmalorne/OperacionesOrdenyGestion/blob/main/WhatsApp%20Image%202026-04-24%20at%208.06.46%20PM.jpeg?raw=true" target="_blank" class="btn btn-outline btn-sm"><i class="fas fa-download"></i> Descargar</a>
+    </div>
+    <div class="dl-card">
+      <div class="dl-icon">&#128203;</div>
+      <div class="dl-info"><div class="dl-name">Formulario Voluntariado</div><div class="dl-desc">Registro para testigos, movilizadores y logística</div></div>
+      <a href="https://forms.gle/5rMXgdZ2pbPqRPLM9" target="_blank" class="btn btn-green btn-sm"><i class="fas fa-external-link-alt"></i> Abrir</a>
+    </div>
+    <div class="dl-card">
+      <div class="dl-icon">&#127760;</div>
+      <div class="dl-info"><div class="dl-name">Directorio de Emprendimientos</div><div class="dl-desc">Bolsa de talentos y servicios comunitarios</div></div>
+      <a href="https://losguayosdigital.com/directorios" target="_blank" class="btn btn-outline btn-sm"><i class="fas fa-external-link-alt"></i> Abrir</a>
+    </div>
+    <div class="dl-card">
+      <div class="dl-icon">&#128274;</div>
+      <div class="dl-info"><div class="dl-name">Formulario Líderes Sectoriales</div><div class="dl-desc">Carga de estatus del equipo de defensa del voto</div></div>
+      <a href="https://forms.gle/sVG98B4xLGytU6NCA" target="_blank" class="btn btn-outline btn-sm"><i class="fas fa-external-link-alt"></i> Abrir</a>
+    </div>
+ 
+    <div class="card" style="margin-top:20px;text-align:center">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:2px;color:var(--gold);margin-bottom:12px">IMÁGENES PARA REDES SOCIALES</div>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <img src="https://github.com/jhonmalorne/OperacionesOrdenyGestion/blob/main/Orden%20y%20gestion%20logo.jpg?raw=true" style="height:80px;border-radius:8px;border:1px solid var(--border)" onerror="this.style.display='none'" alt="Logo OG"/>
+        <img src="https://github.com/jhonmalorne/OperacionesOrdenyGestion/blob/main/mapadevenezuela.png?raw=true" style="height:80px;border-radius:8px;border:1px solid var(--border);background:#fff;padding:4px" onerror="this.style.display='none'" alt="Mapa Venezuela"/>
+        <img src="https://github.com/jhonmalorne/OperacionesOrdenyGestion/blob/main/logo%20registro.jpg?raw=true" style="height:80px;border-radius:8px;border:1px solid var(--border)" onerror="this.style.display='none'" alt="Registro"/>
+      </div>
+      <p style="font-size:0.73rem;color:var(--text3);margin-top:10px">Usa estos recursos en tus publicaciones manteniendo la línea visual de Orden y Gestión</p>
+    </div>
+  </div>
+ 
+  <!-- ═══ DIRECTORIO ═══ -->
+  <div id="page-directorio" class="page">
+    <div id="dir-lock" style="text-align:center;padding:60px 24px">
+      <div style="font-size:3rem;margin-bottom:16px">&#128274;</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:3px;color:var(--gold);margin-bottom:8px">ACCESO RESTRINGIDO</div>
+      <div style="font-size:0.85rem;color:var(--text2);margin-bottom:24px">Este directorio requiere contraseña de coordinador</div>
+      <div style="max-width:300px;margin:0 auto">
+        <input class="inp" type="password" id="dir-pass" placeholder="Contraseña de coordinador" style="margin-bottom:12px;text-align:center;letter-spacing:3px" onkeydown="if(event.key==='Enter')checkDirPass()"/>
+        <button class="btn btn-gold" style="width:100%;justify-content:center" onclick="checkDirPass()"><i class="fas fa-unlock"></i> ACCEDER</button>
+        <div id="dir-err" style="color:var(--red2);font-size:0.75rem;margin-top:8px;display:none">Contraseña incorrecta</div>
+      </div>
+    </div>
+    <div id="dir-content" style="display:none">
+      <div class="sec-head">
+        <div class="sec-label">Directorio Interno</div>
+        <div class="sec-title">Directorio de Líderes Focales</div>
+        <div class="sec-desc">Información confidencial del equipo. No compartir sin autorización.</div>
+      </div>
+      <div class="g2">
+        <div class="search-box" style="margin-bottom:16px">
+          <i class="fas fa-search"></i>
+          <input class="inp" type="text" id="dir-search" placeholder="Buscar líder o sector..." oninput="filterDir()"/>
+        </div>
+        <div></div>
+      </div>
+      <div id="dir-list"></div>
+    </div>
+  </div>
+ 
+</div><!-- /main -->
+ 
+<!-- TICKER -->
+<div id="ticker-bar">
+  <div class="ticker-label"><div class="live-dot"></div>ORDEN Y GESTIÓN</div>
+  <div id="ticker-text">&#9889; VENEZUELA LIBRE · Municipio Los Guayos · Carabobo · Red Ciudadana Organizada · Defensa del Voto · Liderazgo Sectorial · Construyendo el cambio desde las bases &#127988;</div>
+</div>
+</div><!-- /app -->
+ 
+<!-- MODALS -->
+<div id="modal-report" class="modal-overlay hidden">
+  <div class="modal">
+    <div class="modal-head"><h3><i class="fas fa-exclamation-triangle"></i> NUEVO REPORTE</h3><button class="modal-close" onclick="closeModal('modal-report')"><i class="fas fa-times"></i></button></div>
+    <div class="modal-body">
+      <div style="margin-bottom:12px"><label class="lbl">Sector / Zona</label><input class="inp" id="r-sector" placeholder="Ej: Araguaney, Las Aguitas..."/></div>
+      <div style="margin-bottom:12px"><label class="lbl">Tipo de Incidencia</label>
+        <select class="inp" id="r-tipo">
+          <option value="">Seleccionar...</option>
+          <option>&#128161; Falla Eléctrica</option><option>&#128167; Falla de Agua</option>
+          <option>&#127888; Nivel de Río/Quebrada</option><option>&#129295; Incidencia de Orden Público</option>
+          <option>&#127978; Incidencia Electoral</option><option>&#128203; Otro</option>
+        </select>
+      </div>
+      <div style="margin-bottom:12px"><label class="lbl">Severidad</label>
+        <select class="inp" id="r-sev">
+          <option value="ok">&#128994; Normal</option>
+          <option value="warning">&#128993; Alerta Moderada</option>
+          <option value="critical">&#128308; Crítico</option>
+        </select>
+      </div>
+      <div style="margin-bottom:16px"><label class="lbl">Descripción</label><textarea class="inp" id="r-desc" rows="3" placeholder="Describe la situación brevemente..."></textarea></div>
+      <button class="btn btn-gold" style="width:100%;justify-content:center" onclick="submitReport()"><i class="fas fa-paper-plane"></i> ENVIAR REPORTE</button>
+    </div>
+  </div>
+</div>
+ 
+<div id="modal-case" class="modal-overlay hidden">
+  <div class="modal">
+    <div class="modal-head"><h3><i class="fas fa-ticket-alt"></i> CASO CRÍTICO</h3><button class="modal-close" onclick="closeModal('modal-case')"><i class="fas fa-times"></i></button></div>
+    <div class="modal-body">
+      <div style="margin-bottom:12px"><label class="lbl">Nombre de la Familia</label><input class="inp" id="c-nombre" placeholder="Nombre del jefe/a de familia"/></div>
+      <div style="margin-bottom:12px"><label class="lbl">Sector</label><input class="inp" id="c-sector" placeholder="Sector o comunidad"/></div>
+      <div style="margin-bottom:12px"><label class="lbl">Tipo de Necesidad</label>
+        <select class="inp" id="c-tipo">
+          <option>&#127869; Alimentaria</option><option>&#129657; Médica / Salud</option>
+          <option>&#127968; Vivienda</option><option>&#128219; Educativa</option><option>&#128203; Otra</option>
+        </select>
+      </div>
+      <div style="margin-bottom:16px"><label class="lbl">Descripción del Caso</label><textarea class="inp" id="c-desc" rows="3" placeholder="Detalles de la situación..."></textarea></div>
+      <button class="btn btn-gold" style="width:100%;justify-content:center" onclick="submitCase()"><i class="fas fa-save"></i> REGISTRAR CASO</button>
+    </div>
+  </div>
+</div>
+ 
+<div id="toast"></div>
+ 
+<script>
+// ═══════════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════════
+const PASS = 'Ordenygestion44';
+const DIR_PASS = '123456789';
+ 
+const CUADRANTES = [
+  {
+    id:1, name:'Cuadrante 1',
+    sectores:[
+      {nombre:'Araguaney', lideres:[{nombre:'Maria Jimenez',tel:'04244525765'},{nombre:'Egerbert',tel:'04244525765'}]},
+      {nombre:'La Pelayera', lideres:[]},
+      {nombre:'La Línea', lideres:[]},
+      {nombre:'Santa Rosa', lideres:[]},
+      {nombre:'Alí Primera', lideres:[]},
+      {nombre:'Negro Primero', lideres:[]},
+      {nombre:'Libertador', lideres:[]},
+    ]
+  },
+  {
+    id:2, name:'Cuadrante 2',
+    sectores:[
+      {nombre:'Segunda Etapa Las Viviendas 1', lideres:[]},
+      {nombre:'Segunda Etapa Las Viviendas 2', lideres:[]},
+      {nombre:'Segunda Etapa Las Viviendas 3', lideres:[]},
+      {nombre:'Segunda Etapa Las Viviendas 4', lideres:[]},
+      {nombre:'Segunda Etapa Las Viviendas 5', lideres:[]},
+      {nombre:'Segunda Etapa Las Viviendas 6', lideres:[]},
+      {nombre:'Segunda Etapa Las Viviendas 7', lideres:[]},
+    ]
+  },
+  {
+    id:3, name:'Cuadrante 3',
+    sectores:[
+      {nombre:'Aguitas 1', lideres:[{nombre:'Marcial',tel:'04244525765'}]},
+      {nombre:'Aguitas 2', lideres:[{nombre:'Marcial',tel:'04244525765'}]},
+      {nombre:'Aguitas 3', lideres:[{nombre:'Marcial',tel:'04244525765'}]},
+      {nombre:'Aguitas 4', lideres:[{nombre:'Marcial',tel:'04244525765'}]},
+      {nombre:'Aguitas 5', lideres:[{nombre:'Marcial',tel:'04244525765'}]},
+      {nombre:'Aguitas 6', lideres:[{nombre:'Marcial',tel:'04244525765'}]},
+      {nombre:'Aguitas 7', lideres:[{nombre:'Marcial',tel:'04244525765'}]},
+    ]
+  },
+  {
+    id:4, name:'Cuadrante 4',
+    sectores:[
+      {nombre:'Viviendas 1', lideres:[]},{nombre:'Viviendas 2', lideres:[]},
+      {nombre:'Viviendas 3', lideres:[]},{nombre:'Viviendas 4', lideres:[]},
+      {nombre:'Viviendas 5', lideres:[]},{nombre:'Viviendas 6', lideres:[]},
+      {nombre:'Viviendas 7', lideres:[]},
+      {nombre:'Félix Ríos', lideres:[{nombre:'Jhon Álvarez',tel:'04244525765'},{nombre:'Daiela Torrealba',tel:'04244517644'}]},
+      {nombre:'Simón Bolívar', lideres:[]},
+      {nombre:'Las Américas', lideres:[{nombre:'Jhony',tel:'04120370662'}]},
+      {nombre:'Hipólita', lideres:[]},
+      {nombre:'Los Olivos', lideres:[]},
+    ]
+  },
+  {
+    id:5, name:'Cuadrante 5',
+    sectores:[
+      {nombre:'Roble', lideres:[{nombre:'Augusto Salazar',tel:'04121437133'}]},
+      {nombre:'Piedras Negras', lideres:[]},
+      {nombre:'Las Casitas', lideres:[]},
+    ]
+  },
+  {
+    id:6, name:'Cuadrante 6',
+    sectores:[
+      {nombre:'Glorieta', lideres:[]},
+      {nombre:'Charal', lideres:[{nombre:'Giovanni Rivas',tel:'04244560468'}]},
+      {nombre:'Pirital', lideres:[]},
+      {nombre:'Cascabel', lideres:[]},
+      {nombre:'La Unión', lideres:[]},
+    ]
+  },
+  {
+    id:7, name:'Cuadrante 7',
+    sectores:[
+      {nombre:'Quintas 2000', lideres:[{nombre:'Dailen',tel:'04127484922'}]},
+      {nombre:'Tacarigua', lideres:[]},
+      {nombre:'Buenaventura', lideres:[]},
+      {nombre:'Rosalinda', lideres:[{nombre:'Maggie González',tel:'04124583965'}]},
+      {nombre:'Los Cerritos', lideres:[{nombre:'Baldwyn Mujica',tel:'04144160654'},{nombre:'Nicoisa',tel:'04244002409'}]},
+      {nombre:'Alicia Pietri', lideres:[]},
+      {nombre:'Batalla de Carabobo', lideres:[{nombre:'Jhon',tel:'04149424690'}]},
+    ]
+  },
+];
+ 
+const CENTROS = [
+  {nombre:'UNIDAD EDUCATIVA SANTÍSIMA TRINIDAD',cuad:'Cuadrante 1',mesas:5,votantes:4106},
+  {nombre:'ESCUELA BÁSICA LICENCIADA ELISA GUEVARA DE CÁCERES',cuad:'Cuadrante 1',mesas:3,votantes:2751},
+  {nombre:'JARDÍN DE INFANCIA LAS AGUITAS',cuad:'Cuadrante 3',mesas:4,votantes:3079},
+  {nombre:'INSTITUTO DE EDUCACIÓN ESPECIAL LAS AGUITAS',cuad:'Cuadrante 3',mesas:3,votantes:2411},
+  {nombre:'ESCUELA BÁSICA NACIONAL LAS AGUITAS I Y II JULIO GARMENDIA',cuad:'Cuadrante 3',mesas:3,votantes:2352},
+  {nombre:'ANEXO RURAL 6',cuad:'Cuadrante 1',mesas:4,votantes:3062},
+  {nombre:'MARÍA FIDELA CHIRINOS',cuad:'Cuadrante 1',mesas:2,votantes:1633},
+  {nombre:'GRUPO ESCOLAR BATALLA DE AYACUCHO',cuad:'Cuadrante 2',mesas:6,votantes:5134},
+  {nombre:'PRE-ESCOLAR BATALLA DE JUNÍN',cuad:'Cuadrante 4',mesas:6,votantes:5912},
+  {nombre:'GRUPO ESCOLAR YORACO',cuad:'Cuadrante 5',mesas:6,votantes:6161},
+  {nombre:'UNIDAD EDUCATIVA LICEO BOLIVARIANO LA GLORIETA',cuad:'Cuadrante 6',mesas:1,votantes:856},
+  {nombre:'UNIDAD EDUCATIVA SIMÓN JOSÉ GUEDEZ ORTIZ',cuad:'Cuadrante 6',mesas:2,votantes:1065},
+  {nombre:'ESCUELA NACIONAL PIRITAL',cuad:'Cuadrante 6',mesas:2,votantes:1214},
+  {nombre:'JARDÍN DE INFANCIA CABRIALES',cuad:'Cuadrante 6',mesas:4,votantes:3006},
+  {nombre:'UNIDAD EDUCATIVA ESTADAL MARÍA ESCAMILLO',cuad:'Cuadrante 6',mesas:1,votantes:893},
+  {nombre:'ESCUELA BÁSICA NACIONAL BOLIVARIANA LOS CERRITOS',cuad:'Cuadrante 7',mesas:5,votantes:4495},
+  {nombre:'ESCUELA BÁSICA NACIONAL BOLIVARIANA LAS AGUITAS III',cuad:'Cuadrante 3',mesas:5,votantes:4381},
+  {nombre:'UNIDAD BÁSICA RAMONA DE ROMERO',cuad:'Cuadrante 1',mesas:3,votantes:2906},
+  {nombre:'GRUPO ESCOLAR LOS HIJOS DE BOLÍVAR',cuad:'Cuadrante 7',mesas:3,votantes:2892},
+  {nombre:'UNIDAD EDUCATIVA BOLIVARIANA RURAL LA DIOSA DE LOS TACARIGUAS',cuad:'Cuadrante 7',mesas:1,votantes:755},
+  {nombre:'UNIDAD EDUCATIVA ANTONIO JOSÉ DE SUCRE',cuad:'Cuadrante 2',mesas:4,votantes:3794},
+  {nombre:'UNIDAD EDUCATIVA LUISA TERESA DE MONTEMAYOR',cuad:'Cuadrante 7',mesas:4,votantes:3238},
+  {nombre:'ESCUELA BÁSICA ARTURO USLAR PIETRI',cuad:'Cuadrante 5',mesas:3,votantes:2320},
+  {nombre:'PRE-ESCOLAR TACARIGUA I',cuad:'Cuadrante 7',mesas:3,votantes:2985},
+  {nombre:'ESCUELA TECNOLÓGICA RURAL FRANCISCO DE MIRANDA',cuad:'Cuadrante 7',mesas:2,votantes:1155},
+  {nombre:'UNIDAD EDUCATIVA DIVINO NIÑO',cuad:'Cuadrante 1',mesas:2,votantes:1866},
+  {nombre:'UNIDAD EDUCATIVA MANUELA SÁENZ',cuad:'Cuadrante 5',mesas:1,votantes:993},
+  {nombre:'JARDÍN DE INFANCIA EL ROBLE',cuad:'Cuadrante 5',mesas:1,votantes:2117},
+  {nombre:'ESCUELA DE ESPECIALIDADES FEMENINAS',cuad:'Cuadrante 1',mesas:2,votantes:1689},
+  {nombre:'ESCUELA BOLIVARIANA NACIONAL LA UNIÓN',cuad:'Cuadrante 1',mesas:2,votantes:1048},
+  {nombre:'ESCUELA BÁSICA ESTADAL MIGUEL OTERO SILVA',cuad:'Cuadrante 4',mesas:1,votantes:815},
+  {nombre:'UNIDAD EDUCATIVA VICENTE EMPARÁN',cuad:'Cuadrante 4',mesas:1,votantes:1349},
+  {nombre:'MATERNAL PANCHITO MANDEFUA',cuad:'Cuadrante 3',mesas:2,votantes:1401},
+  {nombre:'ESCUELA BÁSICA JUAN VICENTE GONZÁLEZ DELGADO',cuad:'Cuadrante 3',mesas:2,votantes:1876},
+  {nombre:'CENTRO EDUCACIÓN INICIAL LIBERTADOR',cuad:'Cuadrante 1',mesas:1,votantes:869},
+  {nombre:'CENTRO DE ATENCIÓN PARA NIÑOS, NIÑAS JÓVENES Y ADOLESCENTES CON DIFICULTADES DE APRENDIZAJE',cuad:'Cuadrante 4',mesas:3,votantes:2222},
+  {nombre:'CENTRO DE VOTACIÓN 23 DE ENERO',cuad:'Cuadrante 7',mesas:2,votantes:1223},
+  {nombre:'CENTRO DE VOTACIÓN 12 DE MARZO',cuad:'Cuadrante 5',mesas:1,votantes:580},
+  {nombre:'PRE-ESCOLAR ZAIDA CEDEÑO',cuad:'Cuadrante 7',mesas:1,votantes:157},
+  {nombre:'BASE DE MISIÓN SANTA ROSA - ALÍ PRIMERA',cuad:'Cuadrante 2',mesas:1,votantes:250},
+  {nombre:'CENTRO DE EDUCACIÓN INICIAL SIMONCITO ARAGUITA',cuad:'Cuadrante 2',mesas:1,votantes:351},
+  {nombre:'PRE-ESCOLAR LA ALEGRÍA',cuad:'Cuadrante 2',mesas:1,votantes:370},
+];
+ 
+const ALERTAS_DEFAULT = [
+  {sector:'Las Aguitas',tipo:'Falla Eléctrica',sev:'critical',desc:'Corte eléctrico sector Aguitas 3 desde las 14:00',time:'12 min'},
+  {sector:'Araguaney',tipo:'Falla de Agua',sev:'warning',desc:'Baja presión del agua reportada por vecinos',time:'1 h'},
+  {sector:'Los Cerritos',tipo:'Normal',sev:'ok',desc:'Servicios restablecidos. Sin novedad.',time:'3 h'},
+];
+ 
+const SEMAFORO_ITEMS = [
+  {label:'Suministro Eléctrico',estado:'warning',det:'Fallas intermitentes en zonas altas'},
+  {label:'Suministro de Agua',estado:'warning',det:'Presión reducida Cuadrantes 3 y 7'},
+  {label:'Nivel Quebradas',estado:'ok',det:'Niveles normales'},
+  {label:'Orden Público',estado:'ok',det:'Sin reportes críticos'},
+  {label:'Conectividad Red',estado:'ok',det:'Red ciudadana activa'},
+  {label:'Centros de Votación',estado:'ok',det:'Monitoreo activo'},
+];
+ 
+const CUAD_COLORS = ['#ffc800','#00c853','#00d4ff','#ff6b35','#c77dff','#ff4488','#3df5e0'];
+ 
+// ═══════════════════════════════════════════
+// AUTH
+// ═══════════════════════════════════════════
+function togglePass(){
+  const inp=document.getElementById('pass-inp');
+  const ic=document.getElementById('eye-icon');
+  if(inp.type==='password'){inp.type='text';ic.className='fas fa-eye-slash';}
+  else{inp.type='password';ic.className='fas fa-eye';}
+}
+function doLogin(){
+  const v=document.getElementById('pass-inp').value;
+  const err=document.getElementById('login-err');
+  if(v===PASS){
+    document.getElementById('login-screen').style.opacity='0';
+    document.getElementById('login-screen').style.transition='opacity 0.5s';
+    setTimeout(()=>{
+      document.getElementById('login-screen').style.display='none';
+      document.getElementById('app').style.display='block';
+      initApp();
+    },500);
+  } else {
+    err.style.display='block';
+    document.getElementById('pass-inp').style.borderColor='var(--red2)';
+    setTimeout(()=>{err.style.display='none';document.getElementById('pass-inp').style.borderColor='';},2500);
+  }
+}
+function doLogout(){
+  if(confirm('¿Cerrar sesión?')){
+    document.getElementById('app').style.display='none';
+    document.getElementById('login-screen').style.display='flex';
+    document.getElementById('login-screen').style.opacity='1';
+    document.getElementById('pass-inp').value='';
+  }
+}
+ 
+// ═══════════════════════════════════════════
+// APP INIT
+// ═══════════════════════════════════════════
+function initApp(){
+  initClock();
+  renderSemaforo();
+  renderAlertas();
+  renderCoverage();
+  renderCuadrantes();
+  renderCentros();
+  renderCases();
+  renderCuadChart();
+}
+ 
+// CLOCK
+function initClock(){
+  const upd=()=>document.getElementById('clock').textContent=new Date().toLocaleTimeString('es-VE',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  upd();setInterval(upd,1000);
+}
+ 
+// SEMÁFORO
+function renderSemaforo(){
+  const el=document.getElementById('semaforo-list');
+  if(!el)return;
+  const cls={ok:'sema-verde',warning:'sema-amarillo',critical:'sema-rojo'};
+  const lbl={ok:'Normal','warning':'Alerta',critical:'Crítico'};
+  const bc={ok:'badge-green','warning':'badge-gold',critical:'badge-red'};
+  el.innerHTML=SEMAFORO_ITEMS.map(s=>`
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border2)">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div class="sema-dot ${cls[s.estado]}"></div>
+        <div>
+          <div style="font-size:0.83rem;font-weight:600;color:var(--text)">${s.label}</div>
+          <div style="font-size:0.7rem;color:var(--text3)">${s.det}</div>
         </div>
       </div>
-      <div class="hero-ventas">
-        ⚡ AL MAYOR Y DETAL <span>¡pregunta!</span>
-      </div>
-    </section>
-
-    <!-- PRODUCTOS: grilla con imágenes reales -->
-    <h2 class="section-title">🍰 Tentaciones de hoy</h2>
-    <div class="product-grid" id="productGrid">
-      <!-- cada card se generará con js para facilitar edición, pero también puede ser manual -->
-    </div>
-
-    <!-- PANEL DE INFORMACIÓN: pago, marketing, mapa -->
-    <div class="info-panel">
-      <div class="info-block">
-        <img src="logopagomovil.png" alt="Pago Móvil" onerror="this.src='https://via.placeholder.com/70?text=💰'">
-        <p>Pago Móvil</p>
-        <small>Bancos amigos</small>
-      </div>
-      <div class="info-block">
-        <img src="logowhatsapp.png" alt="WhatsApp pedidos" onerror="this.src='https://via.placeholder.com/70?text=📞'">
-        <p>0424-4109526</p>
-        <small>24/7 pedidos</small>
-      </div>
-      <div class="info-block">
-        <img src="mapadevenezuela.png" alt="Los Guayos" onerror="this.src='https://via.placeholder.com/70?text=📍'">
-        <p>Los Guayos</p>
-        <small>zona norte</small>
-      </div>
-      <div class="marketing-credit">
-        <img src="logomarketin.jpeg" alt="Marketing digital" onerror="this.src='https://via.placeholder.com/48?text=✨'">
-        <span>Agradecimientos <br> a nuestro equipo de marketing</span>
-      </div>
-    </div>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="copy">© 2025 Caprichos de Mary — Hecho con ❤️ y azúcar</div>
+      <span class="badge ${bc[s.estado]}">${lbl[s.estado]}</span>
+    </div>`).join('');
+}
+ 
+// ALERTAS
+function getAlertas(){
+  const stored=localStorage.getItem('og_alertas');
+  return stored?JSON.parse(stored):ALERTAS_DEFAULT;
+}
+function renderAlertas(){
+  const alertas=getAlertas();
+  const el=document.getElementById('alertas-list');
+  if(!el)return;
+  document.getElementById('alertas-count').textContent=alertas.filter(a=>a.sev==='critical'||a.sev==='warning').length;
+  el.innerHTML=alertas.map(a=>`
+    <div class="alert-item ${a.sev}">
       <div>
-        <a href="https://wa.me/584244109526" target="_blank">📲 Escríbenos</a>
+        <div style="font-weight:600;font-size:0.83rem;color:var(--text)">${a.sector} · ${a.tipo}</div>
+        <div style="font-size:0.75rem;color:var(--text3);margin-top:2px">${a.desc}</div>
       </div>
-    </footer>
-  </div>
-
-  <!-- JAVASCRIPT para cargar productos y manejar pedidos por WhatsApp -->
-  <script>
-    (function() {
-      // Lista de productos con sus respectivas imágenes (nombres de archivo exactos)
-      const productos = [
-        {
-          nombre: 'Quesillo',
-          descripcion: '500 gr',
-          precio: '4',
-          imagen: 'quesillo.jpg',
-          detalle: 'Quesillo tradicional 500 gr'
-        },
-        {
-          nombre: 'Yogurt',
-          descripcion: '500 gr',
-          precio: '3.5',
-          imagen: 'yogurt.jpg',
-          detalle: 'Yogurt artesanal 500 gr'
-        },
-        {
-          nombre: 'Carne de hamburguesa',
-          descripcion: '6 unidades (pack 60 gr c/u)',
-          precio: '2.5',
-          imagen: 'carnedehamburguesa.png',
-          detalle: '6 unidades de 60 gr'
-        },
-        {
-          nombre: 'Bolas de carne',
-          descripcion: '1 kg',
-          precio: '7',
-          imagen: 'bolasdecarne.jpg',
-          detalle: 'Bolas de carne 1 kg'
-        },
-        {
-          nombre: 'Marquesas',
-          descripcion: 'unidad',
-          precio: '3',
-          imagen: 'Marquesas.jpg',
-          detalle: 'Marquesas (rellenas)'
-        }
-      ];
-
-      const grid = document.getElementById('productGrid');
-      if (!grid) return;
-
-      // Número de WhatsApp (formato internacional sin + ni espacios)
-      const whatsappNumero = '584244109526';  // 58 + 4244109526
-
-      // Construir las cards
-      productos.forEach(prod => {
-        // crear elementos
-        const card = document.createElement('div');
-        card.className = 'product-card';
-
-        // imagen (con fallback si no carga)
-        const img = document.createElement('img');
-        img.className = 'product-img';
-        img.src = prod.imagen;
-        img.alt = prod.nombre;
-        img.onerror = function() {
-          this.src = 'https://via.placeholder.com/300x190?text=' + encodeURIComponent(prod.nombre);
-        };
-
-        // info contenedor
-        const infoDiv = document.createElement('div');
-        infoDiv.className = 'product-info';
-
-        const name = document.createElement('div');
-        name.className = 'product-name';
-        name.textContent = prod.nombre;
-
-        const desc = document.createElement('div');
-        desc.className = 'product-desc';
-        desc.textContent = prod.descripcion;
-
-        const price = document.createElement('div');
-        price.className = 'product-price';
-        price.innerHTML = `$${prod.precio} <small>${prod.detalle ? prod.detalle : ''}</small>`;
-
-        // botón de pedido por WhatsApp con imagen
-        const btn = document.createElement('a');
-        btn.className = 'btn-wsp-order';
-        btn.target = '_blank';
-        // mensaje personalizado con el producto
-        const mensaje = `Hola Mary, me encantaría pedir: ${prod.nombre} (${prod.descripcion}) por $${prod.precio}. ¿Está disponible?`;
-        btn.href = `https://wa.me/${whatsappNumero}?text=${encodeURIComponent(mensaje)}`;
-        
-        // ícono whatsapp interno (podría no existir la imagen, por eso backup)
-        const wspIcon = document.createElement('img');
-        wspIcon.src = 'logowhatsapp.png';
-        wspIcon.alt = 'WhatsApp';
-        wspIcon.style.width = '22px';
-        wspIcon.style.height = '22px';
-        wspIcon.onerror = function() { this.src = 'https://via.placeholder.com/22?text=WA'; };
-        
-        btn.appendChild(wspIcon);
-        btn.appendChild(document.createTextNode('Pedir por WhatsApp'));
-
-        // ensamblar
-        infoDiv.appendChild(name);
-        infoDiv.appendChild(desc);
-        infoDiv.appendChild(price);
-        infoDiv.appendChild(btn);
-
-        card.appendChild(img);
-        card.appendChild(infoDiv);
-
-        grid.appendChild(card);
-      });
-
-      // adicional: si alguna imagen de logo no carga, también tiene respaldo
-      // ya se hizo con onerror en cada img estática
-    })();
-  </script>
-
-  <!-- respaldo para imágenes externas (por si no están en el repo, pero se asume que sí) -->
-  <!-- los onerror de los productos ya están cubiertos, y los del header/footer también -->
+      <div class="alert-time">Hace ${a.time}</div>
+    </div>`).join('');
+}
+ 
+// COVERAGE
+function renderCoverage(){
+  const el=document.getElementById('coverage-bars');
+  if(!el)return;
+  el.innerHTML=CUADRANTES.map((c,i)=>{
+    const total=c.sectores.length;
+    const withLeader=c.sectores.filter(s=>s.lideres.length>0).length;
+    const pct=Math.round((withLeader/total)*100);
+    return `<div style="margin-bottom:14px">
+      <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+        <span style="font-size:0.78rem;color:var(--text2)"><span style="color:${CUAD_COLORS[i]};font-weight:700">${c.name}</span> · ${withLeader}/${total} sectores con líder</span>
+        <span style="font-size:0.78rem;font-weight:700;color:${pct>=70?'var(--green)':pct>=40?'var(--gold)':'var(--red2)'}">${pct}%</span>
+      </div>
+      <div class="progress-wrap"><div class="progress-bar" style="width:${pct}%;background:linear-gradient(90deg,${CUAD_COLORS[i]},${CUAD_COLORS[i]}aa)"></div></div>
+    </div>`;
+  }).join('');
+}
+ 
+// CUADRANTES TABS
+function renderCuadrantes(){
+  const tabs=document.getElementById('cuad-tabs');
+  const contents=document.getElementById('cuad-contents');
+  if(!tabs||!contents)return;
+  tabs.innerHTML=CUADRANTES.map((c,i)=>`<button class="tab${i===0?' active':''}" onclick="switchCuadTab(${i})">${c.name}</button>`).join('');
+  contents.innerHTML=CUADRANTES.map((c,i)=>`
+    <div class="tab-content${i===0?' active':''}" id="cuad-tab-${i}">
+      ${c.sectores.map(s=>`
+        <div class="sector-item ${s.lideres.length>0?'has-leader':'no-leader'}">
+          <div class="sector-header">
+            <div style="display:flex;align-items:center;gap:10px">
+              <span class="cuad-badge">C${c.id}</span>
+              <span class="sector-name">${s.nombre}</span>
+            </div>
+            ${s.lideres.length>0?'<span class="badge badge-green"><i class="fas fa-check"></i> Con Líder</span>':'<span class="badge badge-gray">Sin asignar</span>'}
+          </div>
+          ${s.lideres.length>0?`
+            <div class="leader-row">
+              ${s.lideres.map(l=>`
+                <div style="display:flex;align-items:center;gap:8px">
+                  <i class="fas fa-user-circle" style="color:var(--gold)"></i>
+                  <span class="leader-name">${l.nombre}</span>
+                  <a href="https://wa.me/58${l.tel.replace(/^0/,'')}" target="_blank" class="btn btn-wa btn-sm"><img src="https://github.com/jhonmalorne/OperacionesOrdenyGestion/blob/main/logowhatsapp.png?raw=true" style="height:14px;filter:brightness(10)" onerror="this.style.display='none'" alt="WA"/> ${l.tel}</a>
+                </div>`).join('')}
+            </div>`:''}
+        </div>`).join('')}
+    </div>`).join('');
+}
+ 
+function switchCuadTab(i){
+  document.querySelectorAll('.tab').forEach((t,idx)=>t.classList.toggle('active',idx===i));
+  document.querySelectorAll('.tab-content').forEach((c,idx)=>c.classList.toggle('active',idx===i));
+}
+ 
+// CENTROS
+function renderCentros(){
+  const tbody=document.getElementById('centros-tbody');
+  if(!tbody)return;
+  const search=(document.getElementById('centros-search')?.value||'').toLowerCase();
+  const cuadF=document.getElementById('centros-cuad-filter')?.value||'';
+  const filtered=CENTROS.filter(c=>
+    (!search||(c.nombre.toLowerCase().includes(search)||c.cuad.toLowerCase().includes(search)))&&
+    (!cuadF||c.cuad===cuadF)
+  );
+  tbody.innerHTML=filtered.map(c=>`
+    <tr>
+      <td style="color:var(--text);font-weight:500;font-size:0.8rem">${c.nombre}</td>
+      <td><span class="badge badge-blue">${c.cuad}</span></td>
+      <td style="color:var(--cyan);font-weight:700;text-align:center">${c.mesas}</td>
+      <td style="color:var(--gold);font-weight:700">${c.votantes.toLocaleString()}</td>
+    </tr>`).join('');
+}
+function filterCentros(){renderCentros();}
+ 
+// CUAD CHART (simple bars)
+function renderCuadChart(){
+  const el=document.getElementById('cuad-chart');
+  if(!el)return;
+  const byC={};
+  CENTROS.forEach(c=>{
+    const k=c.cuad;
+    if(!byC[k]){byC[k]={v:0,m:0,c:0};}
+    byC[k].v+=c.votantes;byC[k].m+=c.mesas;byC[k].c++;
+  });
+  const max=Math.max(...Object.values(byC).map(x=>x.v));
+  el.innerHTML=Object.entries(byC).map(([k,v],i)=>`
+    <div style="margin-bottom:10px">
+      <div style="display:flex;justify-content:space-between;margin-bottom:3px">
+        <span style="font-size:0.75rem;color:var(--text2)">${k}</span>
+        <span style="font-size:0.75rem;color:var(--gold);font-weight:700">${v.v.toLocaleString()} votantes · ${v.m} mesas</span>
+      </div>
+      <div class="progress-wrap" style="height:10px">
+        <div class="progress-bar" style="width:${Math.round((v.v/max)*100)}%;background:linear-gradient(90deg,${CUAD_COLORS[i]||'#ffc800'},${CUAD_COLORS[i]||'#ffc800'}88)"></div>
+      </div>
+    </div>`).join('');
+}
+ 
+// CASES
+function getCases(){return JSON.parse(localStorage.getItem('og_cases')||'[]');}
+function renderCases(){
+  const el=document.getElementById('cases-list');
+  if(!el)return;
+  const cases=getCases();
+  if(!cases.length){
+    el.innerHTML='<div style="text-align:center;padding:24px;color:var(--text3);font-size:0.82rem"><i class="fas fa-check-circle" style="font-size:1.5rem;display:block;margin-bottom:8px;color:var(--green)"></i>Sin casos activos actualmente</div>';
+    return;
+  }
+  el.innerHTML=cases.map((c,i)=>`
+    <div class="alert-item warning" style="margin-bottom:6px">
+      <div style="flex:1">
+        <div style="font-weight:700;font-size:0.83rem">${c.nombre} · ${c.sector}</div>
+        <div style="font-size:0.72rem;color:var(--text3)">${c.tipo} · ${c.desc}</div>
+        <div style="font-size:0.68rem;color:var(--text3);margin-top:2px">${c.fecha}</div>
+      </div>
+      <button class="btn btn-outline btn-sm" onclick="closeCase(${i})" style="color:var(--green);border-color:var(--green)"><i class="fas fa-check"></i></button>
+    </div>`).join('');
+}
+function closeCase(i){
+  const cases=getCases();cases.splice(i,1);
+  localStorage.setItem('og_cases',JSON.stringify(cases));renderCases();showToast('Caso cerrado','success');
+}
+ 
+// DIRECTORIO
+function checkDirPass(){
+  const v=document.getElementById('dir-pass').value;
+  if(v===DIR_PASS){
+    document.getElementById('dir-lock').style.display='none';
+    document.getElementById('dir-content').style.display='block';
+    renderDir();
+  } else {
+    document.getElementById('dir-err').style.display='block';
+    setTimeout(()=>document.getElementById('dir-err').style.display='none',2000);
+  }
+}
+ 
+function buildDirData(){
+  const all=[];
+  CUADRANTES.forEach(c=>{
+    c.sectores.forEach(s=>{
+      if(s.lideres.length>0){
+        s.lideres.forEach(l=>{
+          all.push({cuad:c.name,sector:s.nombre,nombre:l.nombre,tel:l.tel});
+        });
+      }
+    });
+  });
+  // Add sectoriales
+  all.push({cuad:'Sectorial',sector:'Educación',nombre:'Jhon Álvarez',tel:'04244525765'});
+  all.push({cuad:'Sectorial',sector:'Salud',nombre:'Nicoisa',tel:'04244002409'});
+  return all;
+}
+ 
+function renderDir(filter=''){
+  const el=document.getElementById('dir-list');
+  if(!el)return;
+  const data=buildDirData();
+  const filtered=filter?data.filter(d=>d.nombre.toLowerCase().includes(filter)||d.sector.toLowerCase().includes(filter)||d.cuad.toLowerCase().includes(filter)):data;
+  el.innerHTML=`<div class="tbl-wrap"><table class="tbl">
+    <thead><tr><th>Cuadrante</th><th>Sector</th><th>Líder Focal</th><th>Contacto</th></tr></thead>
+    <tbody>${filtered.map(d=>`
+      <tr>
+        <td><span class="badge badge-blue">${d.cuad}</span></td>
+        <td style="color:var(--text)">${d.sector}</td>
+        <td style="font-weight:600;color:var(--text)">${d.nombre}</td>
+        <td><a href="https://wa.me/58${d.tel.replace(/^0/,'')}" target="_blank" class="btn btn-wa btn-sm"><i class="fab fa-whatsapp"></i> ${d.tel}</a></td>
+      </tr>`).join('')}
+    </tbody>
+  </table></div>`;
+}
+function filterDir(){renderDir((document.getElementById('dir-search')?.value||'').toLowerCase());}
+ 
+// NAVIGATION
+const PAGE_TITLES={
+  'war-room':'WAR ROOM · MONITOR SITUACIONAL',
+  'red-liderazgo':'RED DE LIDERAZGO',
+  'inteligencia':'INTELIGENCIA ELECTORAL',
+  'centros':'CENTROS DE VOTACIÓN',
+  'accion-social':'ACCIÓN SOCIAL Y PRODUCTIVA',
+  'repositorio':'REPOSITORIO ESTRATÉGICO',
+  'directorio':'DIRECTORIO DE LÍDERES',
+};
+function goPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.sb-item').forEach(i=>i.classList.remove('active'));
+  document.getElementById('page-'+id)?.classList.add('active');
+  document.querySelector(`[onclick="goPage('${id}')"]`)?.classList.add('active');
+  document.getElementById('tb-title').textContent=PAGE_TITLES[id]||id.toUpperCase();
+  // close mobile sidebar
+  if(window.innerWidth<768){document.getElementById('sidebar').classList.remove('mobile-open');}
+}
+ 
+// SIDEBAR TOGGLE
+let sidebarOpen=true;
+function toggleSidebar(){
+  const sb=document.getElementById('sidebar');
+  const main=document.getElementById('main');
+  const tb=document.getElementById('topbar');
+  if(window.innerWidth<768){
+    sb.classList.toggle('mobile-open');
+    return;
+  }
+  sidebarOpen=!sidebarOpen;
+  sb.classList.toggle('closed',!sidebarOpen);
+  main.classList.toggle('full',!sidebarOpen);
+  tb.classList.toggle('full',!sidebarOpen);
+}
+ 
+// MODALS
+function openReportModal(){document.getElementById('modal-report').classList.remove('hidden');}
+function openCaseModal(){document.getElementById('modal-case').classList.remove('hidden');}
+function closeModal(id){document.getElementById(id).classList.add('hidden');}
+document.querySelectorAll('.modal-overlay').forEach(m=>m.addEventListener('click',function(e){if(e.target===this)this.classList.add('hidden');}));
+ 
+function submitReport(){
+  const sector=document.getElementById('r-sector').value.trim();
+  const tipo=document.getElementById('r-tipo').value;
+  const sev=document.getElementById('r-sev').value;
+  const desc=document.getElementById('r-desc').value.trim();
+  if(!sector||!tipo||!desc){showToast('Completa todos los campos','error');return;}
+  const alertas=getAlertas();
+  alertas.unshift({sector,tipo,sev,desc,time:'Ahora'});
+  localStorage.setItem('og_alertas',JSON.stringify(alertas));
+  renderAlertas();closeModal('modal-report');showToast('Reporte enviado correctamente','success');
+  document.getElementById('r-sector').value='';document.getElementById('r-tipo').value='';document.getElementById('r-desc').value='';
+}
+ 
+function submitCase(){
+  const nombre=document.getElementById('c-nombre').value.trim();
+  const sector=document.getElementById('c-sector').value.trim();
+  const tipo=document.getElementById('c-tipo').value;
+  const desc=document.getElementById('c-desc').value.trim();
+  if(!nombre||!sector||!desc){showToast('Completa todos los campos','error');return;}
+  const cases=getCases();
+  cases.push({nombre,sector,tipo,desc,fecha:new Date().toLocaleDateString('es-VE')});
+  localStorage.setItem('og_cases',JSON.stringify(cases));
+  renderCases();closeModal('modal-case');showToast('Caso registrado','success');
+  document.getElementById('c-nombre').value='';document.getElementById('c-sector').value='';document.getElementById('c-desc').value='';
+}
+ 
+// TOAST
+function showToast(msg,type='info'){
+  const c=document.getElementById('toast');
+  const t=document.createElement('div');
+  t.className='toast-item '+type;
+  const ic={success:'check-circle',error:'exclamation-circle',info:'info-circle'}[type]||'info-circle';
+  t.innerHTML=`<i class="fas fa-${ic}" style="margin-right:6px"></i>${msg}`;
+  c.appendChild(t);setTimeout(()=>t.remove(),3000);
+}
+ 
+// RESPONSIVE
+window.addEventListener('resize',()=>{
+  if(window.innerWidth>=768){
+    const sb=document.getElementById('sidebar');
+    sb.classList.remove('mobile-open');
+    if(!sb.classList.contains('closed')){
+      document.getElementById('main').classList.remove('full');
+      document.getElementById('topbar').classList.remove('full');
+    }
+  }
+});
+</script>
 </body>
 </html>
